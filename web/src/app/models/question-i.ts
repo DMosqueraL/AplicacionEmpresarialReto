@@ -1,4 +1,4 @@
-import { AnswerI } from "./answer-i";
+import {AnswerI} from "./answer-i";
 
 export interface QuestionI {
    id:string;

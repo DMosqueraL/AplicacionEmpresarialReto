@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { QuestionI } from 'src/app/models/question-i';
-import { QuestionService } from 'src/app/Service/question.service';
-import { ServiceService } from 'src/app/Service/service.service';
+import {Component, OnInit} from '@angular/core';
+import {QuestionI} from 'src/app/models/question-i';
+import {QuestionService} from 'src/app/Service/question.service';
+import {ServiceService} from 'src/app/Service/service.service';
 
 @Component({
   selector: 'app-preguntas',
@@ -68,11 +68,11 @@ export class PreguntasComponent implements OnInit {
   }
 
   traerdatos() {
-    this.userLogged.subscribe((value) => {     
+    this.userLogged.subscribe((value) => {
       if (value?.email == undefined) {
-        this.disabled = true;       
+        this.disabled = true;
       } else {
-        this.disabled = false;     
+        this.disabled = false;
       }
     });
   }
