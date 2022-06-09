@@ -10,4 +10,6 @@ import reactor.core.publisher.Mono;
 public interface QuestionRepository extends ReactiveCrudRepository<Question, String> {
     Flux<Question> findByUserId(String userId);
     Flux<Question> findAll();
+
+
 }
