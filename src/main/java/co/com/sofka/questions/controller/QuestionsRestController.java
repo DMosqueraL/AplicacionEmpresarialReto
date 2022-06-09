@@ -18,4 +18,14 @@ public class QuestionsRestController {
     public Mono<Long> countQuestions(){
         return questionRepository.findAll().count();
     }
+
+    @GetMapping("/totalPages")
+    public Mono<Long> totalPages(){
+        return questionRepository
+                .findAll()
+                .count()
+                .map(questions -> (questions/10)+1);
+    }
+
+
 }
