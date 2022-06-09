@@ -40,6 +40,18 @@ export class ServiceService {
       return null;
     }
   }
+
+  async loginWithGoogle() {
+    try {
+      return await this.afauth.signInWithPopup(new firebase.auth.GoogleAuthProvider())   
+        
+    } catch (error) {
+      console.log('Error al logearse con Google',error)
+      return null;
+    }
+  }
+
+
   async loginRegistre(email: string, password: string) {
     try {
       return await this.afauth
