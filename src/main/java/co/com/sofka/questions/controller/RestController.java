@@ -5,9 +5,7 @@ import co.com.sofka.questions.collections.Question;
 import co.com.sofka.questions.reposioties.AnswerRepository;
 import co.com.sofka.questions.reposioties.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -51,7 +49,14 @@ public class RestController {
                 .findById(id);
     }
 
+    @PostMapping("/create")
+    public Mono<Question> saveQuestion(@RequestBody Question question) {
+        return questionRepository.save(question);
+    }
 
-
+    @PostMapping("/add")
+    public Mono<Answer> saveAnswer(@RequestBody Answer answer) {
+        return answerRepository.save(answer);
+    }
 
 }
