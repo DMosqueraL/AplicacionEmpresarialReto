@@ -1,13 +1,10 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import {
-  AngularFirestore,
-  AngularFirestoreDocument,
-} from '@angular/fire/compat/firestore';
-import { Router } from '@angular/router';
+import {Injectable} from '@angular/core';
+import {AngularFireAuth} from '@angular/fire/compat/auth';
+import {AngularFirestore, AngularFirestoreDocument,} from '@angular/fire/compat/firestore';
+import {Router} from '@angular/router';
 
 import firebase from 'firebase/compat/app';
-import { User } from '../models/user';
+import {User} from '../models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -34,8 +31,8 @@ export class ServiceService {
   async login(email: string, password: string) {
     try {
       return await this.afauth
-        .signInWithEmailAndPassword(email, password)      
-        
+        .signInWithEmailAndPassword(email, password)
+
     } catch (error) {
       return null;
     }
@@ -43,7 +40,7 @@ export class ServiceService {
   async loginRegistre(email: string, password: string) {
     try {
       return await this.afauth
-        .createUserWithEmailAndPassword(email, password)        
+        .createUserWithEmailAndPassword(email, password)
     } catch (error) {
       return null;
     }
@@ -59,7 +56,7 @@ export class ServiceService {
   async loginGoogle(email: string, password: string) {
     try {
       return await this.afauth
-        .signInWithPopup(new firebase.auth.GoogleAuthProvider())       
+        .signInWithPopup(new firebase.auth.GoogleAuthProvider())
     } catch (error) {
       return null;
     }
