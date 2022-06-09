@@ -18,12 +18,12 @@ export class QuestionService {
 
   constructor(private http: HttpClient) {}
 
-  getPage(page: number): Observable<QuestionI[]> {
+  getPage(page: number): Observable<QuestionI[]> {//
     let direction = this.url + 'pagination/' + page;
     return this.http.get<QuestionI[]>(direction);
   }
 
-  getAnswer(id: any): Observable<QuestionI> {
+  getAnswer(id: any): Observable<QuestionI> {//implementado sin validar
     let direction = this.url + 'get/' + id;
     return this.http.get<QuestionI>(direction);
   }
