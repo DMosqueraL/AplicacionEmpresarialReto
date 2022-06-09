@@ -23,12 +23,12 @@ export class QuestionService {
     return this.http.get<QuestionI[]>(direction);
   }
 
-  getAnswer(id: any): Observable<QuestionI> {//implementado sin validar
+  getAnswer(id: any): Observable<QuestionI> {//desde la pregunta se saca el parametro preguntas por eso tiene igual endpoin al siguiente
     let direction = this.url + 'get/' + id;
     return this.http.get<QuestionI>(direction);
   }
 
-  getQuestion(id: string): Observable<QuestionI> {
+  getQuestion(id: string): Observable<QuestionI> { //estas dos funciones tienen el mismo endpoint
     let direction = this.url + 'get/' + id;
     return this.http.get<QuestionI>(direction);
   }

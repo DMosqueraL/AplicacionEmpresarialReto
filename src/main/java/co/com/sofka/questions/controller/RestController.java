@@ -43,13 +43,12 @@ public class RestController {
                 .findAll()
                 .skip((page)*10)
                 .take(10);
-
     }
 
     @GetMapping("/get/{id}")
-    public Flux<Answer> getAnswer(@PathVariable String id){
-        return answerRepository.
-                findAllByQuestionId(id);
+    public Mono<Question> getQuestion(@PathVariable String id){
+        return questionRepository
+                .findById(id);
     }
 
 
