@@ -19,27 +19,27 @@ export class QuestionService {
 
   constructor(private http: HttpClient) {}
 
-  getPage(page: number): Observable<QuestionI[]> {
+  getPage(page: number): Observable<QuestionI[]> {//
     let direction = this.url + 'pagination/' + page;
     return this.http.get<QuestionI[]>(direction);
   }
 
-  getAnswer(id: any): Observable<QuestionI> {
+  getAnswer(id: any): Observable<QuestionI> {//desde la pregunta se saca el parametro preguntas por eso tiene igual endpoin al siguiente
     let direction = this.url + 'get/' + id;
     return this.http.get<QuestionI>(direction);
   }
 
-  getQuestion(id: string): Observable<QuestionI> {
+  getQuestion(id: string): Observable<QuestionI> { //estas dos funciones tienen el mismo endpoint
     let direction = this.url + 'get/' + id;
     return this.http.get<QuestionI>(direction);
   }
 
-  getTotalPages(): Observable<number> {
+  getTotalPages(): Observable<number> { //
     let direction = this.url + 'totalPages';
     return this.http.get<number>(direction);
   }
 
-  getCountQuestions(): Observable<number> {
+  getCountQuestions(): Observable<number> { //
     let direction = this.url + 'countQuestions';
     return this.http.get<number>(direction);
   }
