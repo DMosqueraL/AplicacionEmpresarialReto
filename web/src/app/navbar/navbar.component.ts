@@ -11,7 +11,9 @@ export class NavbarComponent implements OnInit {
   userLogged = this.authService.getUserLogged();
   disabled: boolean = false;
 
-  constructor(private authService: ServiceService, private route: Router) {}
+
+
+  constructor(public authService: ServiceService, private route: Router) {}
 
   ngOnInit(): void {
     this.traerdatos();
@@ -29,6 +31,17 @@ export class NavbarComponent implements OnInit {
 
   login() {
     this.route.navigate(['login']);
+  }
+
+  cerrar(){
+    this.authService.afauth.signOut()
+      .then(() => {
+        console.log('debo salir')
+        this.route.navigate(['preguntas'])
+        window.location.reload()})
+
+      .catch(()=> console.log('no puedo desconectarme'))
+    
   }
 
   
