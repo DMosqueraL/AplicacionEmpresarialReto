@@ -52,6 +52,9 @@ import { EditComponent } from './paginas/edit/edit.component';
    
     
   ],
+  exports: [
+    NavbarComponent,
+  ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
