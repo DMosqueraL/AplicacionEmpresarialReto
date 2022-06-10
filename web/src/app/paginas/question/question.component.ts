@@ -17,6 +17,7 @@ import { ServiceService } from 'src/app/Service/service.service';
   providers: [MessageService],
 })
 export class QuestionComponent implements OnInit {
+  
   answers: AnswerI[] | undefined;
   question: answe = {
     id:
@@ -33,7 +34,7 @@ export class QuestionComponent implements OnInit {
     answers:[null],
     start: '2'
   };
-
+  
   constructor(
     private modalService: NgbModal,
     private authService: ServiceService,

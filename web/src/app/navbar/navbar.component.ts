@@ -8,6 +8,7 @@ import { ServiceService } from '../Service/service.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+ 
   userLogged = this.authService.getUserLogged();
   disabled: boolean = false;
 

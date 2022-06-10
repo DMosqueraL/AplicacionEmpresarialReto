@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent},
   { path: 'answer', component: AnswerComponent},
   {path: 'question/:id', component: RequestionComponent},
+  { path: 'forgot-password', loadChildren: () => import('./persona/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule) },
   {path: '**', pathMatch: 'full', redirectTo:'preguntas'}
 ];
 
