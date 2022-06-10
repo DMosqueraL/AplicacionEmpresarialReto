@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "retosofkau": {
+      "hosting": {
+        "reto_sofka": [
+          "retosofkau"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "retosofkau"
+  }
+}

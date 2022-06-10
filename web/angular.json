@@ -31,8 +31,6 @@
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeng/resources/themes/saga-blue/theme.css"
-              
-              
             ],
             "scripts": []
           },
@@ -94,11 +92,20 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-         
             "styles": [
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "reto_sofka:build:production",
+            "firebaseProject": "retosofkau",
+            "firebaseHostingSite": "retosofkau"
           }
         }
       }

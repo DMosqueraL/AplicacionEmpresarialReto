@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ServiceService } from '../Service/service.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {ServiceService} from '../Service/service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -21,11 +21,11 @@ export class NavbarComponent implements OnInit {
   }
 
   traerdatos() {
-    this.userLogged.subscribe((value) => {    
+    this.userLogged.subscribe((value) => {
       if (value?.email == undefined) {
-        this.disabled = true;        
+        this.disabled = true;
       } else {
-        this.disabled = false;       
+        this.disabled = false;
       }
     });
   }
@@ -44,6 +44,6 @@ export class NavbarComponent implements OnInit {
       .catch(()=> console.log('no puedo desconectarme'))
     
   }
+ 
 
-  
 }
