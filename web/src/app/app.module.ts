@@ -59,7 +59,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     ToastrModule.forRoot(),
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
