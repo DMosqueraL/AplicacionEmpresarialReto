@@ -1,13 +1,15 @@
 export const environment = {
   production: true,
   firebaseConfig : 
+
+
   {
-    apiKey: "AIzaSyBQZ_Q-tpgzOdLMXIzVkKJy7VDyrRzP6F8",
-    authDomain: "prueba-4ae67.firebaseapp.com",
-    projectId: "prueba-4ae67",
-    storageBucket: "prueba-4ae67.appspot.com",
-    messagingSenderId: "892407043746",
-    appId: "1:892407043746:web:4725ca07021f213eb3a9fb"
+    apiKey: "AIzaSyA1f4tyjr2_3_JsOq5ZExg6p4QIn1LWZC8",
+    authDomain: "retomedio.firebaseapp.com",
+    projectId: "retomedio",
+    storageBucket: "retomedio.appspot.com",
+    messagingSenderId: "1037161644832",
+    appId: "1:1037161644832:web:9c07e74c8e5e4c2983cd45"
   }
 
 };
