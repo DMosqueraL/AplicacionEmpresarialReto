@@ -73,6 +73,10 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 
 
   ],
+
+  exports: [
+    NavbarComponent,
+  ],
   providers: [HttpClientModule, ScreenTrackingService,UserTrackingService],
   bootstrap: [AppComponent]
 })
