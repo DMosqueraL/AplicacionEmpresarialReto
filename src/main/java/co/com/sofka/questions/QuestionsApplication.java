@@ -20,7 +20,7 @@ public class QuestionsApplication {
     }
 
     @EventListener(ApplicationReadyEvent.class)
-    public void triggerMail() throws MessagingException {
+    public void triggerMail() {
         senderService.sendSimpleEmail("dml2410@gmail.com",
                 "Notificación desde Reto Sofka",
                 "Este es un correo de prueba");
