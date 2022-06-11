@@ -50,6 +50,8 @@ class DeleteUseCaseTest {
                     return true;
                 }).expectComplete();
 
+        verify(questionRepository).deleteById("Q-00001");
+
     }
 
 
