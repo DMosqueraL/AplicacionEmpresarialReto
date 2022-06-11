@@ -9,8 +9,7 @@
                     </div>
                     <div class="card-body p-4">
                         <div class="form-floating">
-                            <textarea  [(ngModel)]="answer.answer" class="form-control m-2" placeholder="Leave a comment here" id="question" style="height: 150px"
-                            ></textarea>
+                            <textarea  [(ngModel)]="answer.answer" class="form-control m-2" placeholder="Leave a comment here" id="question"></textarea>
                             <label for="floatingTextarea">Respuesta</label>
                         </div>                         
                         <p-rating [cancel]="false" [(ngModel)]="answer.position"></p-rating>
@@ -29,4 +28,5 @@
   </ng-template>
   <button pButton pRipple type="button" disabled="true" label="Inicia Sesión Antes de Responder" class="p-button-outlined p-button-danger" *ngIf="!authService.userData"></button> 
   <button class="btn btn-outline-primary mb-2 me-2" (click)="openVerticallyCentered(content)" *ngIf="authService.userData">Contestar a esta pregunta</button>
+  
   

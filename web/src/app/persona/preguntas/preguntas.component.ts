@@ -6,12 +6,12 @@ import {ServiceService} from 'src/app/Service/service.service';
 @Component({
   selector: 'app-preguntas',
   templateUrl: './preguntas.component.html',
-  styleUrls: ['./preguntas.component.css'],
+  styleUrls: ['./preguntas.component.sass'],
 })
 export class PreguntasComponent implements OnInit {
   userLogged = this.authService.getUserLogged();
   uid: any;
-
+  
   totalQuestions: number = 0;
 
   questions: QuestionI[] | undefined;

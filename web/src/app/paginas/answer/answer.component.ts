@@ -11,7 +11,7 @@ import {ServiceService} from 'src/app/Service/service.service';
 @Component({
   selector: 'app-answer',
   templateUrl: './answer.component.html',
-  styleUrls: ['./answer.component.css'],
+  styleUrls: ['./answer.component.sass'],
   providers: [MessageService],
 })
 export class AnswerComponent implements OnInit {
@@ -40,9 +40,9 @@ export class AnswerComponent implements OnInit {
     answer: '',
     position: 0,
   };
-
+  
   ngOnInit(): void {}
-
+ 
   openVerticallyCentered(content: any) {
     this.modalService.open(content, { centered: true });
   }
@@ -50,6 +50,7 @@ export class AnswerComponent implements OnInit {
   saveAnswer(): void {
     this.answer.userId = this.item.userId;
     this.answer.questionId = this.item.id;
+    this.answer.position=this.item.position;
     this.services.saveAnswer(this.answer).subscribe({
       next: (v) => {
         if(v){

@@ -64,4 +64,9 @@ public class RestController {
         return questionRepository.save(question);
     }
 
+    @PutMapping("/answer")
+    public Mono<Answer> updateAnswer(@RequestBody Answer answer) {
+        return answerRepository.save(answer);
+    }
+
 }
