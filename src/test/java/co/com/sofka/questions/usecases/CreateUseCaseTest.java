@@ -46,15 +46,14 @@ class CreateUseCaseTest {
         questionDTO.setType(question.getType());
         questionDTO.setCategory(question.getCategory());
 
-        when(questionRepository.save(Mockito.any(Question.class))).thenReturn(Mono.just(question));
-
+        when(questionRepository.save(any(Question.class))).thenReturn(Mono.just(question));
         StepVerifier.create(createUseCase.apply(questionDTO))
 
                 .expectNextMatches(pregunta -> {
-                    assert questionDTO.getId().equals(question.getId());
+                    assert pregunta.equals(question.getId());
                     return true;
                 }).verifyComplete();
 
-        verify(questionRepository).save(Mockito.any(Question.class));
+        verify(questionRepository).save(any(Question.class));
     }
 }

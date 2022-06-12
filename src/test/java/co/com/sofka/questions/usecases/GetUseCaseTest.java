@@ -10,9 +10,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static reactor.core.publisher.Mono.when;
+import static org.mockito.Mockito.*;
 
 class GetUseCaseTest {
 
@@ -48,16 +46,17 @@ class GetUseCaseTest {
         when(answerRepository.findAllByQuestionId(question.getId())).thenReturn(Flux.just(answer));
 
         StepVerifier.create(getUseCase.apply(question.getId()))
-                .expectNextMatches(questionTest -> {
-                    assert questionTest.getId().equals(question.getId());
-                    assert questionTest.getUserId().equals(question.getUserId());
-                    assert questionTest.getCategory().equals(question.getCategory());
-                    assert questionTest.getQuestion().equals(question.getQuestion());
-                    assert questionTest.getType().equals(question.getType());
+                .expectNextMatches(pregunta -> {
+                    assert pregunta.getId().equals(question.getId());
+                    assert pregunta.getUserId().equals(question.getUserId());
+                    assert pregunta.getCategory().equals(question.getCategory());
+                    assert pregunta.getQuestion().equals(question.getQuestion());
+                    assert pregunta.getType().equals(question.getType());
                     return true;
                 }).verifyComplete();
 
-        verify(questionRepository).findById(question.getId());
+
         verify(answerRepository).findAllByQuestionId(question.getId());
+
     }
 }
