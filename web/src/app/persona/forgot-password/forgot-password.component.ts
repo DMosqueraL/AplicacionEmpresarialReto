@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ServiceService} from 'src/app/Service/service.service';
-import {FormControl} from '@angular/forms';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Provider } from 'react-redux';
+import { ServiceService } from 'src/app/Service/service.service';
+import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',

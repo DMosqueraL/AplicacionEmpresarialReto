@@ -6,12 +6,12 @@
         <div class="card text-center">
           <div class="card-header fs-1 font1">
             {{ question?.answers?.length }}
-
+            
           </div>
           <div class="card-body" >
             <h5 class="card-text font1">Total Respuestas</h5>
           </div>
-          <div class="card-footer text-muted">
+          <div class="card-footer text-muted">            
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@
         <div class="card text-center">
           <div class="card-header fs-1 font1">
             {{ question?.question }}
-
+           
           </div>
           <div class="card-body" style="margin-right: 40px; margin-left: 40px">
             <h5 class="card-text font1">Tipo: {{ question?.type }}</h5>
@@ -36,25 +36,23 @@
             <h2 class="accordion-header" id="headingOne">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <h5 class="text-center">Respuesta: </h5>
-                <p-rating [cancel]="true" [(ngModel)]="questions.position" [disabled]="false"></p-rating>
-
-
+                <p-rating [cancel]="false" [(ngModel)]="questions.position" [disabled]="true"></p-rating>
+     
+                
                 <!-- Respuesta -->
               </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-
-              <p>{{ questions.answer }}</p>
-
+              <p>{{ questions.answer }}</p>   
               <div class="accordion-body">
-                <strong></strong>
-
+                <strong></strong> 
+              
               </div>
             </div>
           </div>
         </div>
       </div>
-
+      
     </div>
   </div>
 
