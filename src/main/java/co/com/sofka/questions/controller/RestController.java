@@ -19,9 +19,6 @@ public class RestController {
     @Autowired
     private AnswerRepository answerRepository;
 
-
-
-
     @GetMapping("/countQuestions")
     public Mono<Long> countQuestions(){
         return questionRepository.findAll().count();

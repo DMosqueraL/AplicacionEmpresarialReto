@@ -16,14 +16,18 @@ public class AnswerDTO {
     private Integer position;
 
 
-    public AnswerDTO() {
-
+    public AnswerDTO(String id, String userId, String answer, Integer position) {
+        this.position = position;
     }
 
     public AnswerDTO(@NotBlank String questionId, @NotBlank String userId, @NotBlank String answer) {
         this.userId = userId;
         this.questionId = questionId;
         this.answer = answer;
+    }
+
+    public AnswerDTO() {
+
     }
 
     public Integer getPosition() {

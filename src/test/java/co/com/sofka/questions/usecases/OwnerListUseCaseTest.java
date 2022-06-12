@@ -5,32 +5,28 @@ import co.com.sofka.questions.model.QuestionDTO;
 import co.com.sofka.questions.reposioties.QuestionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import static org.mockito.Mockito.*;
 
-class CreateUseCaseTest {
 
-    @Mock
+class OwnerListUseCaseTest {
+
     QuestionRepository questionRepository;
-
-    @Mock
-    CreateUseCase createUseCase;
-
-    MapperUtils mapperUtils = new MapperUtils();
+    OwnerListUseCase ownerListUseCase;
 
     @BeforeEach
-    public void setUp() {
-
+    public void setup() {
+        MapperUtils mapperUtils = new MapperUtils();
         questionRepository = mock(QuestionRepository.class);
-        createUseCase = new CreateUseCase(mapperUtils, questionRepository);
-
+        ownerListUseCase = new OwnerListUseCase(mapperUtils, questionRepository);
     }
 
     @Test
-    void getValidationCreateTest() {
+    void getValidationTest() {
+
         var question = new Question();
         question.setId("Q-00001");
         question.setUserId("ABCD1234");
@@ -46,13 +42,21 @@ class CreateUseCaseTest {
         questionDTO.setCategory(question.getCategory());
 
         when(questionRepository.save(any(Question.class))).thenReturn(Mono.just(question));
-        StepVerifier.create(createUseCase.apply(questionDTO))
 
-                .expectNextMatches(pregunta -> {
-                    assert pregunta.equals(question.getId());
+        when(questionRepository.findByUserId(questionDTO.getUserId())).thenReturn(Flux.just(question));
+
+        StepVerifier.create(ownerListUseCase.apply(question.getUserId()).collectList())
+                .expectNextMatches(preguntas -> {
+                    assert preguntas.get(0).getId().equals(question.getId());
+                    assert preguntas.get(0).getUserId().equals(question.getUserId());
+                    assert preguntas.get(0).getType().equals(question.getType());
+                    assert preguntas.get(0).getCategory().equals(question.getCategory());
+                    assert preguntas.get(0).getQuestion().equals(question.getQuestion());
                     return true;
                 }).verifyComplete();
 
-        verify(questionRepository).save(any(Question.class));
+        verify(questionRepository).findByUserId(question.getUserId());
+
     }
 }
+
