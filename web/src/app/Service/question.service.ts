@@ -9,10 +9,6 @@ import {AnswerI} from '../models/answer-i';
   providedIn: 'root',
 })
 export class QuestionService {
-  push(arg0: string) {
-    throw new Error('Method not implemented.');
-  }
-
 
   private url: string = 'https://retomidempresarial.herokuapp.com/';
 
@@ -58,6 +54,11 @@ export class QuestionService {
 
   editQuestion(question: QuestionI): Observable<any> {
     let direction = this.url + 'update';
-    return this.http.post<any>(direction, question);
+    return this.http.put<any>(direction, question);
+  }
+
+  editAnswer(answer: AnswerI): Observable<any> {
+    let direction = this.url + 'answer';
+    return this.http.put<any>(direction, answer);
   }
 }
