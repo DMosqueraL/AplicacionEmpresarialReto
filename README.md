@@ -62,6 +62,31 @@ Click en el botón "Contestar a esta pregunta" y una ventana emergente se mostra
 
 ![image](https://user-images.githubusercontent.com/97240171/173417076-88c784cc-e2f8-4716-8328-bd9791899465.png)
 
+Una vez posteada la respuesta, el sistema le informará que fue agregada.
+
+![image](https://user-images.githubusercontent.com/97240171/173417615-2e8ee69f-9bdd-4d6e-a08c-216064dfce0b.png)
+
+Puede asignarle estrellas a las respuestas que más le gusten y/o todas.
+
+![image](https://user-images.githubusercontent.com/97240171/173417752-7451bd3f-6606-470f-bed5-2708c09dac0f.png)
+
+Nota: En proceso se encuentra el promedio de estrellas que posee cada pregunta.
+
+Para regresar a la página inicial, click en el logo de Sofka.
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+# Información Técnica del Proyecto.
+
+Despliegue en Heroku: https://retomidempresarial.herokuapp.com/
+Despliegue en Firebase: https://retosofkau.web.app/
+Implementación de Swagger 3.0: https://retomidempresarial.herokuapp.com/webjars/swagger-ui/index.html#/
+
+![image](https://user-images.githubusercontent.com/97240171/173418416-2acbbece-0f5e-4eb1-947e-88e593b809af.png)
+
+Muchas Gracias ^_^
+
+
 
 
 
