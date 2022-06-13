@@ -1,13 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ToastrService } from 'ngx-toastr';
-import { MessageService } from 'primeng/api';
-import { answe } from 'src/app/models/answe';
-import { AnswerI } from 'src/app/models/answer-i';
-import { QuestionI } from 'src/app/models/question-i';
-import { QuestionService } from 'src/app/Service/question.service';
-import { ServiceService } from 'src/app/Service/service.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ToastrService} from 'ngx-toastr';
+import {MessageService} from 'primeng/api';
+import {answe} from 'src/app/models/answe';
+import {AnswerI} from 'src/app/models/answer-i';
+import {QuestionI} from 'src/app/models/question-i';
+import {QuestionService} from 'src/app/Service/question.service';
+import {ServiceService} from 'src/app/Service/service.service';
 
 @Component({
   selector: 'app-edit',
