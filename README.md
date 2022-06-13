@@ -79,7 +79,9 @@ Para regresar a la página inicial, click en el logo de Sofka.
 # Información Técnica del Proyecto.
 
 Despliegue en Heroku: https://retomidempresarial.herokuapp.com/
+
 Despliegue en Firebase: https://retosofkau.web.app/
+
 Implementación de Swagger 3.0: https://retomidempresarial.herokuapp.com/webjars/swagger-ui/index.html#/
 
 ![image](https://user-images.githubusercontent.com/97240171/173418416-2acbbece-0f5e-4eb1-947e-88e593b809af.png)
