@@ -126,8 +126,9 @@ public class QuestionRouter {
     }
 
     @Bean
-    @RouterOperation(beanClass = UpdateUseCase.class, beanMethod = "apply", operation = @Operation(operationId = "update", summary = "Update question", tags = {
-            "Question" }, responses = {
+    @RouterOperation(beanClass = UpdateUseCase.class, beanMethod = "apply",
+            operation = @Operation(operationId = "update", summary = "Actualizar Pregunta",
+                    tags = { "Preguntas" }, responses = {
             @ApiResponse(responseCode = "200", description = "Operación Exitosa"),
             @ApiResponse(responseCode = "400", description = "Parámetros Inválidos"),
             @ApiResponse(responseCode = "404", description = "Pregunta NO Encontrada") }))
