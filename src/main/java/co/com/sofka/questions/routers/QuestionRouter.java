@@ -46,7 +46,7 @@ public class QuestionRouter {
             parameters = {@Parameter(in = ParameterIn.PATH, name = "userId", description = "UserId")},
             responses = {@ApiResponse(responseCode = "200", description = "Operación exitosa"),
                     @ApiResponse(responseCode = "400", description = "Id de usuario inválido"),
-                    @ApiResponse(responseCode = "404", description = "Id de usuario no encontrado")}))
+                    @ApiResponse(responseCode = "404", description = "Id de usuario NO encontrado")}))
     public RouterFunction<ServerResponse> getOwnerAll(OwnerListUseCase ownerListUseCase) {
         return route(
                 GET("/getOwnerAll/{userId}"),
@@ -79,9 +79,9 @@ public class QuestionRouter {
     @RouterOperation(operation = @Operation(operationId = "QuestionDTO",
             summary = "Obtener una pregunta por ID", tags = {"Preguntas"},
             parameters = {@Parameter(in = ParameterIn.PATH, name = "id", description = "id")},
-            responses = {@ApiResponse(responseCode = "200", description = "Operación exitosa"),
+            responses = {@ApiResponse(responseCode = "200", description = "Operación Exitosa"),
                     @ApiResponse(responseCode = "400", description = "Id de pregunta inválido"),
-                    @ApiResponse(responseCode = "404", description = "Pregunta no encontrada")}))
+                    @ApiResponse(responseCode = "404", description = "Pregunta NO Encontrada")}))
     public RouterFunction<ServerResponse> get(GetUseCase getUseCase) {
         return route(
                 GET("/get/{id}").and(accept(MediaType.APPLICATION_JSON)),
@@ -113,15 +113,33 @@ public class QuestionRouter {
     @RouterOperation(operation = @Operation(operationId = "deleteQuestionByID",
             summary = "Borrar pregunta por ID", tags = {"Preguntas"},
             parameters = {@Parameter(in = ParameterIn.PATH, name = "id", description = "Question Id")},
-            responses = {@ApiResponse(responseCode = "202", description = "Operación exitosa"),
+            responses = {@ApiResponse(responseCode = "202", description = "Operación Exitosa"),
                     @ApiResponse(responseCode = "400", description = "Id de pregunta inválido"),
-                    @ApiResponse(responseCode = "404", description = "Pregunta no encontrada")}))
+                    @ApiResponse(responseCode = "404", description = "Pregunta NO Encontrada")}))
     public RouterFunction<ServerResponse> delete(DeleteUseCase deleteUseCase) {
         return route(
                 DELETE("/delete/{id}").and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse.accepted()
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(BodyInserters.fromPublisher(deleteUseCase.apply(request.pathVariable("id")), Void.class))
+        );
+    }
+
+    @Bean
+    @RouterOperation(beanClass = UpdateUseCase.class, beanMethod = "apply", operation = @Operation(operationId = "update", summary = "Update question", tags = {
+            "Question" }, responses = {
+            @ApiResponse(responseCode = "200", description = "Operación Exitosa"),
+            @ApiResponse(responseCode = "400", description = "Parámetros Inválidos"),
+            @ApiResponse(responseCode = "404", description = "Pregunta NO Encontrada") }))
+    public RouterFunction<ServerResponse> update(UpdateUseCase updateUseCase) {
+        Function<QuestionDTO, Mono<ServerResponse>> executor = QuestionDTO -> updateUseCase.apply(QuestionDTO)
+                .flatMap(result -> ServerResponse.ok()
+                        .contentType(MediaType.TEXT_PLAIN)
+                        .bodyValue(result));
+
+        return route(
+                PUT("/update").and(accept(MediaType.APPLICATION_JSON)),
+                request -> request.bodyToMono(QuestionDTO.class).flatMap(executor)
         );
     }
 }

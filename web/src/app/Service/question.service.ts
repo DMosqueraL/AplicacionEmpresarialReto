@@ -10,8 +10,8 @@ import {AnswerI} from '../models/answer-i';
 })
 export class QuestionService {
 
-  private url: string = 'https://retomidempresarial.herokuapp.com/';
-  //private url: string = 'http://localhost:8080/';
+  //private url: string = 'https://retomidempresarial.herokuapp.com/';
+  private url: string = 'http://localhost:8080/';
 
 
   constructor(private http: HttpClient) {}
