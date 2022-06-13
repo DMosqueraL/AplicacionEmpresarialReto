@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import { User } from '@firebase/auth';
 import {AnswerI} from 'src/app/models/answer-i';
 import {QuestionI} from 'src/app/models/question-i';
+
 import {QuestionService} from 'src/app/Service/question.service';
 
 @Component({
@@ -15,10 +17,12 @@ export class RequestionComponent implements OnInit {
   answers: AnswerI[] | undefined;
   answersNew: AnswerI[]=[];
   currentAnswer:number=0;
+  user: User | undefined;
+
 
   questions: QuestionI[] | undefined;
 
-  page: number = 0;
+  page: number = 1;
 
   constructor(
     private route:ActivatedRoute,
@@ -30,6 +34,8 @@ export class RequestionComponent implements OnInit {
     }
 
   id:string | undefined;
+
+
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');

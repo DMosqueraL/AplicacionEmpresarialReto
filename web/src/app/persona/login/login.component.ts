@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   public form: FormGroup = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(10)]],
+    password: ['', [Validators.required, Validators.minLength(8)]],
     rating: ['', []],
   });
   public form2: FormGroup = this.formBuilder.group({
