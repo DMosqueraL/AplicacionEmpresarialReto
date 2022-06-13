@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AnswerComponent} from './paginas/answer/answer.component';
-import { EditComponent } from './paginas/edit/edit.component';
+import {EditComponent} from './paginas/edit/edit.component';
 import {RequestionComponent} from './paginas/requestion/requestion.component';
 import {LoginComponent} from './persona/login/login.component';
 import {PreguntasComponent} from './persona/preguntas/preguntas.component';
